@@ -1,5 +1,5 @@
 God.watch do |w|
-  w.name = "ogment"
-  w.start = Dir.pwd+"/bin/ogment"
+  w.name = "augmented_pursuit"
+  w.start = Dir.pwd+"/bin/augmented_pursuit"
   w.keepalive
 end

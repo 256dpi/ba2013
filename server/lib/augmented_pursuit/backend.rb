@@ -1,4 +1,4 @@
-class Ogment::Backend
+class AugmentedPursuit::Backend
 
   def initialize server
     @server = server
@@ -10,16 +10,16 @@ class Ogment::Backend
     @server.close_handler = lambda do |conn|
       device = device_by_connection conn
       device.log "connection lost"
-      Ogment.data[:devices].delete device
+      AugmentedPursuit.data[:devices].delete device
     end
 
     @server.register_handler "client_identification" do |conn,event|
       if (old_device = device_by_id event.payload["device_id"])
-        Ogment.data[:devices].delete old_device
+        AugmentedPursuit.data[:devices].delete old_device
       end
-      device = Ogment::Device.new event.payload["device_id"], conn
+      device = AugmentedPursuit::Device.new event.payload["device_id"], conn
       device.log "identified"
-      Ogment.data[:devices].push device
+      AugmentedPursuit.data[:devices].push device
       @server.dispatch_event_with_payload "client_identified", "", conn
     end
 
@@ -33,15 +33,15 @@ class Ogment::Backend
     @server.register_handler "request_new_game" do |conn,event|
       origin = device_by_connection conn
       origin.log "requested new game"
-      possible_opponents = Ogment.data[:devices].select do |d|
+      possible_opponents = AugmentedPursuit.data[:devices].select do |d|
         d.id != origin.id && d.active && !d.game
       end
       if origin.active && possible_opponents.size > 0
         origin.log "start new game with opponents"
-        game = Ogment::Game.new origin, possible_opponents
+        game = AugmentedPursuit::Game.new origin, possible_opponents
       else
         origin.log "start ego game"
-        game = Ogment::Game.new origin, [origin]
+        game = AugmentedPursuit::Game.new origin, [origin]
       end
       game.start
       send_device_matrix
@@ -98,7 +98,7 @@ class Ogment::Backend
       log "attack selection complete"
       if player.player? || player.opponent?
         query = get_search_query player
-        results = Ogment::Internet.search_for_string query, player.language
+        results = AugmentedPursuit::Internet.search_for_string query, player.language
         results = manipulate_search_results player, results
         if player.game.turn.selected_attack == "phishing"
           player.game.turn.results_cache = results
@@ -129,7 +129,7 @@ class Ogment::Backend
       origin = device_by_connection conn
       origin.log "requested page #{event.payload}"
       if origin.player?
-        page = Ogment::Internet.page_by_url event.payload, origin.language
+        page = AugmentedPursuit::Internet.page_by_url event.payload, origin.language
         if origin.game.turn.selected_attack == "man_in_the_middle"
           @server.dispatch_event_with_payload "manipulate_page", { page: page, url: event.payload }, origin.game.turn.opponent.connection
         else
@@ -152,10 +152,10 @@ class Ogment::Backend
 
   def send_device_matrix
     null_matrix = Hash.new
-    Ogment.data[:devices].each do |device|
+    AugmentedPursuit.data[:devices].each do |device|
       null_matrix[device.id.to_i] = device.state
     end
-    Ogment.data[:devices].each do |device|
+    AugmentedPursuit.data[:devices].each do |device|
       indexes = [1,2,3,4]
       (device.id.to_i-1).times do
         indexes.push indexes.shift
@@ -206,13 +206,13 @@ class Ogment::Backend
   # basic helpers
 
   def device_by_connection conn
-    Ogment.data[:devices].each do |device|
+    AugmentedPursuit.data[:devices].each do |device|
       return device if device.connection == conn
     end
   end
 
   def device_by_id id
-    Ogment.data[:devices].each do |device|
+    AugmentedPursuit.data[:devices].each do |device|
       return device if device.id == id
     end
   end

@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class Ogment::Internet
+class AugmentedPursuit::Internet
 
   BING_BASE = "https://api.datamarket.azure.com/Bing/SearchWeb/v1"
   BING_API_KEY = "UG15xAbv2dD6xGaeoLKWVtzMI2YrMPO9oy7wa9rXYzk="

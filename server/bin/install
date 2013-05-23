@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "bundler/setup"
+
+puts "create wrapper..."
+`rvm wrapper 2.0.0@global ap`
+
+require "launchdr"
+LaunchDr "ch.256dpi.augmented-pursuit" do |plist|
+  plist[:program_arguments] = ["ap_ruby "+Dir.pwd+"/augmented-pursuit"]
+end

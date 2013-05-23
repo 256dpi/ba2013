@@ -1,4 +1,4 @@
-class Ogment::Frontend < EM::HttpServer::Server
+class AugmentedPursuit::Frontend < EM::HttpServer::Server
 
   def process_http_request
     begin

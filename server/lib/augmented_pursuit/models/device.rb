@@ -1,4 +1,4 @@
-class Ogment::Device
+class AugmentedPursuit::Device
 
   attr_reader :id, :connection
   attr_accessor :active, :strategy, :protection, :language, :search_terms, :game
@@ -44,7 +44,7 @@ class Ogment::Device
   end
 
   def server
-    Ogment.data[:server]
+    AugmentedPursuit.data[:server]
   end
 
 end

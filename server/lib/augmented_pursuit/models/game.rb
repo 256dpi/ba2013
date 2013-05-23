@@ -1,9 +1,9 @@
-class Ogment::Game
+class AugmentedPursuit::Game
 
   attr_reader :id, :player, :opponents, :turn
 
   def initialize player, opponents
-    @id = Ogment.data[:game_counter]+=1
+    @id = AugmentedPursuit.data[:game_counter]+=1
     @player = player
     @opponents = opponents
     @turn_counter = 0
@@ -26,12 +26,12 @@ class Ogment::Game
       server.dispatch_event_with_payload "game_started", "player", @player.connection
       server.dispatch_event_with_payload "game_started", "opponent", *@opponents.map{ |d| d.connection }
     end
-    Ogment.data[:games].push self
+    AugmentedPursuit.data[:games].push self
   end
 
   def new_turn search
     log "new turn started"
-    @turn = Ogment::Turn.new @turn_counter+=1, self, search
+    @turn = AugmentedPursuit::Turn.new @turn_counter+=1, self, search
     if demo?
       server.dispatch_event_with_payload "select_attack", "", @player.connection
     else
@@ -48,7 +48,7 @@ class Ogment::Game
     log "game will end"
     server.dispatch_event_with_payload "game_ended", "", *all_devices.map{ |d| d.connection }
     all_devices.each{ |d| d.game = nil }
-    Ogment.data[:games].delete self
+    AugmentedPursuit.data[:games].delete self
   end
 
   # helper
@@ -58,7 +58,7 @@ class Ogment::Game
   end
 
   def server
-    Ogment.data[:server]
+    AugmentedPursuit.data[:server]
   end
 
 end

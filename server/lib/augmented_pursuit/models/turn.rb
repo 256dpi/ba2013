@@ -1,4 +1,4 @@
-class Ogment::Turn
+class AugmentedPursuit::Turn
 
   attr_reader :id, :game, :search, :attacks, :opponent, :denial_of_service
   attr_accessor :results_cache
@@ -61,7 +61,7 @@ class Ogment::Turn
   end
 
   def server
-    Ogment.data[:server]
+    AugmentedPursuit.data[:server]
   end
 
 end

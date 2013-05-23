@@ -4,11 +4,11 @@ require "rubygems"
 require "bundler/setup"
 
 $:.unshift File.dirname(__FILE__)+"/../lib"
-require "ogment"
+require "augmented_pursuit"
 require "evented_communication"
 
 begin
-  Ogment::Server.new.run
+  AugmentedPursuit::Server.new.run
 rescue Interrupt
   "interrupt - shutdown server!"
 end

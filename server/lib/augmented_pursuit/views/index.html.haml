@@ -15,13 +15,13 @@
         padding: 4px;
       }
   %body
-    %h1 Ogment Server
+    %h1 Augmented Pursuit Server
     %h2 Sockets
     %table
       %tr
         %th ID
         %th Remote
-      - Ogment.data[:server].connections.each do |conn|
+      - AugmentedPursuit.data[:server].connections.each do |conn|
         %tr
           - port, ip = Socket.unpack_sockaddr_in conn.socket.get_peername
           %td= conn.socket.signature
@@ -36,7 +36,7 @@
         %th Language
         %th Game
         %th Search History
-      - Ogment.data[:devices].each do |device|
+      - AugmentedPursuit.data[:devices].each do |device|
         %tr
           %td= "D"+device.id
           %td= device.active.to_s
@@ -52,7 +52,7 @@
         %th Demo
         %th Player
         %th Opponents
-      - Ogment.data[:games].each do |game|
+      - AugmentedPursuit.data[:games].each do |game|
         %tr
           %td= "G"+game.id.to_s
           %td= game.demo?.to_s
@@ -70,7 +70,7 @@
         %th Selected Attack
         %th Selected Strategies
         %th Selected Protection
-      - Ogment.data[:games].each do |game|
+      - AugmentedPursuit.data[:games].each do |game|
         - if game.turn
           %tr
             %td= "T"+game.turn.id.to_s
