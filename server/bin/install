@@ -8,5 +8,5 @@ puts "create wrapper..."
 
 require "launchdr"
 LaunchDr "ch.256dpi.augmented-pursuit" do |plist|
-  plist["ProgramArguments"] = ["ap_ruby "+Dir.pwd+"/augmented-pursuit"]
+  plist["ProgramArguments"] = ["ap_ruby "+File.dirname(__FILE__)+"/augmented-pursuit"]
 end
