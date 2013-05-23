@@ -1,0 +1,84 @@
+!!!
+%html
+  %head
+    %meta{ "http-equiv" => "refresh", "content" => 2}
+    :css
+      * {
+        font-family: "Quicksand";
+        text-transform: uppercase;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      table td, table th {
+        border: 1px solid black;
+        padding: 4px;
+      }
+  %body
+    %h1 Ogment Server
+    %h2 Sockets
+    %table
+      %tr
+        %th ID
+        %th Remote
+      - Ogment.data[:server].connections.each do |conn|
+        %tr
+          - port, ip = Socket.unpack_sockaddr_in conn.socket.get_peername
+          %td= conn.socket.signature
+          %td= ip.to_s+":"+port.to_s
+    %h2 Devices
+    %table
+      %tr
+        %th ID
+        %th Active
+        %th Strategy
+        %th Protection
+        %th Language
+        %th Game
+        %th Search History
+      - Ogment.data[:devices].each do |device|
+        %tr
+          %td= "D"+device.id
+          %td= device.active.to_s
+          %td= device.strategy
+          %td= device.protection
+          %td= device.language
+          %td= device.game ? "G"+device.game.id.to_s : "none"
+          %td= device.search_terms.join(", ")
+    %h2 Games
+    %table
+      %tr
+        %th ID
+        %th Demo
+        %th Player
+        %th Opponents
+      - Ogment.data[:games].each do |game|
+        %tr
+          %td= "G"+game.id.to_s
+          %td= game.demo?.to_s
+          %td= "D"+game.player.id
+          %td= "D"+game.opponents.map{ |o| o.id }.join(", D")
+    %h2 Turns
+    %table
+      %tr
+        %th ID
+        %th Game
+        %th Search
+        %th Selected Attacks
+        %th Attack selection complete
+        %th Opponent
+        %th Selected Attack
+        %th Selected Strategies
+        %th Selected Protection
+      - Ogment.data[:games].each do |game|
+        - if game.turn
+          %tr
+            %td= "T"+game.turn.id.to_s
+            %td= "G"+game.id.to_s
+            %td= game.turn.search
+            %td= game.turn.attacks.values.join(", ")
+            %td= game.turn.attack_selection_complete?.to_s
+            %td= game.turn.opponent ? "D"+game.turn.opponent.id : "none"
+            %td= game.turn.selected_attack
+            %td= game.turn.selected_strategies.join(", ")
+            %td= game.turn.game.player.protection

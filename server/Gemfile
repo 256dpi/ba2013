@@ -1,0 +1,10 @@
+source :rubygems
+
+gem "em-http-server"
+gem "oj"
+gem "haml"
+gem "httparty"
+
+# evented communication
+gem "em-websocket"
+gem "uuid"
