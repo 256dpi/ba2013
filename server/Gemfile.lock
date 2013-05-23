@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     em-http-server (0.1.5)
       eventmachine
@@ -7,6 +7,7 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.5.3)
     eventmachine (1.0.3)
+    god (0.13.2)
     haml (4.0.0)
       tilt
     http_parser.rb (0.5.3)
@@ -29,6 +30,7 @@ PLATFORMS
 DEPENDENCIES
   em-http-server
   em-websocket
+  god
   haml
   httparty
   oj
