@@ -6,6 +6,8 @@ require "bundler/setup"
 puts "create wrapper..."
 `rvm wrapper 2.0.0@global ap`
 
+# at ap_irb `bundle install'
+
 require "launchdr"
 LaunchDr "ch.256dpi.augmented-pursuit" do |plist|
   plist["ProgramArguments"] = ["ap_ruby "+File.expand_path(File.dirname(__FILE__)+"/augmented-pursuit")]
