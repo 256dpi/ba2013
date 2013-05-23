@@ -1,9 +1,10 @@
-source :rubygems
+source "https://rubygems.org"
 
 gem "em-http-server"
 gem "oj"
 gem "haml"
 gem "httparty"
+gem "god"
 
 # evented communication
 gem "em-websocket"
