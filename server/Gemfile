@@ -5,7 +5,6 @@ gem "oj"
 gem "haml"
 gem "httparty"
 gem "god"
-gem "launchdr"
 
 # evented communication
 gem "em-websocket"
