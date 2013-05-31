@@ -187,13 +187,13 @@ class AugmentedPursuit::Backend
     log "current player protection: #{player.protection}"
     if player.game.turn.include_strategy?("advertisement") && player.protection != "ad_blocker"
       log "applied strategy advertisement"
-      50.times do
+      results.size.times do
         results.insert Random.rand(0..results.size-1), { title: "ADVERTISEMENT", :type => :ad }
       end
     end
     if player.game.turn.include_strategy?("censorship") && player.protection != "vpn_server"
       log "applied strategy censorship"
-      30.times do
+      results.size.times do
         item = results[Random.rand(0..results.size-1)]
         item[:type] = :censored
       end
