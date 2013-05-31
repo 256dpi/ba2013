@@ -20,6 +20,9 @@ class AugmentedPursuit::Backend
       device = AugmentedPursuit::Device.new event.payload["device_id"], conn
       device.log "identified"
       AugmentedPursuit.data[:devices].push device
+      if AugmentedPursuit.data[:devices].size > 4
+        exit
+      end
       @server.dispatch_event_with_payload "client_identified", "", conn
     end
 
