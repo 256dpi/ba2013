@@ -104,9 +104,6 @@
 		524047A8171B20F80022FD6E /* Ogment-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ogment-Prefix.pch"; sourceTree = "<group>"; };
 		524047A9171B20F80022FD6E /* OGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OGAppDelegate.h; sourceTree = "<group>"; };
 		524047AA171B20F80022FD6E /* OGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OGAppDelegate.m; sourceTree = "<group>"; };
-		524047AC171B20F80022FD6E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		524047AE171B20F80022FD6E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		524047B0171B20F80022FD6E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		52404801171B364A0022FD6E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		52404803171B42F70022FD6E /* OGConnectingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGConnectingViewController.h; sourceTree = "<group>"; };
 		52404804171B42F70022FD6E /* OGConnectingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OGConnectingViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -155,7 +152,6 @@
 		52B04323171C333400B3B490 /* ECEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECEvent.m; sourceTree = "<group>"; };
 		52B04326171C399900B3B490 /* ECEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECEventHandler.h; sourceTree = "<group>"; };
 		52B04327171C399900B3B490 /* ECEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECEventHandler.m; sourceTree = "<group>"; };
-		52B04329171C3C6800B3B490 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		52C03FC01737B5FB0023BACE /* override.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = override.css; sourceTree = "<group>"; };
 		52CA246A1726B1CF00DAB129 /* OGTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OGTheme.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		52CA246B1726B1CF00DAB129 /* OGTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OGTheme.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -265,9 +261,6 @@
 				524047A3171B20F80022FD6E /* InfoPlist.strings */,
 				524047A6171B20F80022FD6E /* main.m */,
 				524047A8171B20F80022FD6E /* Ogment-Prefix.pch */,
-				524047AC171B20F80022FD6E /* Default.png */,
-				524047AE171B20F80022FD6E /* Default@2x.png */,
-				524047B0171B20F80022FD6E /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -356,7 +349,6 @@
 				52B04327171C399900B3B490 /* ECEventHandler.m */,
 				52B04322171C333400B3B490 /* ECEvent.h */,
 				52B04323171C333400B3B490 /* ECEvent.m */,
-				52B04329171C3C6800B3B490 /* README */,
 			);
 			name = EventedCommunication;
 			sourceTree = "<group>";
