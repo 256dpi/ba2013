@@ -1,0 +1,22 @@
+body {
+  font-family: "Georgia";
+  color: #000;
+  background-color: #f6f6f6 !important;
+  margin: 30px !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+* {
+  color: #000 !important;
+}
+
+.mw-editsection {
+  display: none;
+}

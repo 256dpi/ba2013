@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Blokk";
+  src: url("http://ogmentapp.com/blokk.otf");
+}
+
+* {
+  font-family: default;
+}
+
+.censored {
+  font-family: "Blokk";
+}
+
+.IPA {
+  display: none;
+}

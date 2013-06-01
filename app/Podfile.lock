@@ -1,0 +1,16 @@
+PODS:
+  - SocketRocket (0.2.0)
+  - SSToolkit (1.0.4)
+  - UIViewDrawRectBlock (0.0.1)
+
+DEPENDENCIES:
+  - SocketRocket
+  - SSToolkit
+  - UIViewDrawRectBlock
+
+SPEC CHECKSUMS:
+  SocketRocket: bca43a94bd9aac3a629df42c06843402399ee67b
+  SSToolkit: 689acaedac79c2079e492e528a55bcb5db9d98c4
+  UIViewDrawRectBlock: 20c76d72d4a903a6a1e94d27f7ad2621225f9f49
+
+COCOAPODS: 0.18.0
