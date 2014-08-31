@@ -1,3 +1,3 @@
-# ba2013
+# bachelor
 
 **source code of my bachelor thesis**
